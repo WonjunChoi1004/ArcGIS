@@ -39,7 +39,7 @@ out_meta.update({
     "driver": "GTiff"
 })
 
-with rasterio.open("RainfallData/rainfall_wnc.tif", "w", **out_meta) as dest:
+with rasterio.open("../../RainfallData/rainfall_wnc.tif", "w", **out_meta) as dest:
     dest.write(out_image)
 
 # === Visualize ===

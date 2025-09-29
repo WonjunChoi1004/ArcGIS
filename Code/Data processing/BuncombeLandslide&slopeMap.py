@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # --- Paths ---
 slope_path = "/SlopeData/slope_asheville.tif"
 county_shp_path = "/MaskingData/cb_2022_us_county_500k.shp"
-landslide_csv_path = "LandslideData/North_Carolina_Landslide_Points.csv"
+landslide_csv_path = "../../LandslideData/North_Carolina_Landslide_Points.csv"
 
 # --- Load slope raster ---
 with rasterio.open(slope_path) as src:

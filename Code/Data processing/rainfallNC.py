@@ -31,7 +31,7 @@ out_meta.update({
     "driver": "GTiff"
 })
 
-with rasterio.open("RainfallData/rainfall_north_carolina.tif", "w", **out_meta) as dest:
+with rasterio.open("../../RainfallData/rainfall_north_carolina.tif", "w", **out_meta) as dest:
     dest.write(out_image)
 
 # === 5. Visualize the clipped rainfall raster ===

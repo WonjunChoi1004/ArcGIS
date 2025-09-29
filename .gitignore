@@ -1,0 +1,13 @@
+# Ignore large or unnecessary data files
+*.tif
+*.bil
+*.zip
+*.aux.xml
+*.stn.csv
+*.csv
+
+# Ignore external or sensitive folders
+RainfallData/
+SlopeData/
+venv/
+__pycache__/
