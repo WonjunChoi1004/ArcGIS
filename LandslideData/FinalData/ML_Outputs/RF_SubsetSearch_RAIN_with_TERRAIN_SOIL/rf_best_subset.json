@@ -1,0 +1,44 @@
+{
+  "best_rain_features": [
+    "Max_Rainfall_30day",
+    "Max_Rainfall_3day",
+    "R7d",
+    "R30d"
+  ],
+  "always_included": {
+    "terrain": [
+      "Elevation_m",
+      "Slope_deg"
+    ],
+    "soil": [
+      "Soil_Depth_Deep200_Flag"
+    ]
+  },
+  "final_feature_list": [
+    "Max_Rainfall_30day",
+    "Max_Rainfall_3day",
+    "R7d",
+    "R30d",
+    "Elevation_m",
+    "Slope_deg",
+    "Soil_Depth_Deep200_Flag"
+  ],
+  "metrics": {
+    "Accuracy": 0.8079470198675497,
+    "Precision": 0.7870370370370371,
+    "Recall": 0.8443708609271523,
+    "F1": 0.8146964856230032,
+    "ROC_AUC": 0.8884972150344282,
+    "Brier": 0.13895376158940398
+  },
+  "k_rain": 4,
+  "timing": {
+    "total_rain_subsets": 63,
+    "elapsed_sec": 173.72,
+    "mean_subset_sec": 2.7569000000000004
+  },
+  "config": {
+    "N_SPLITS": 5,
+    "RANDOM_STATE": 42
+  }
+}

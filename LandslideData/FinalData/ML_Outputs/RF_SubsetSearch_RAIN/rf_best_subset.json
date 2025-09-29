@@ -1,0 +1,25 @@
+{
+  "best_features": [
+    "Max_Rainfall_3day",
+    "R7d",
+    "API_14"
+  ],
+  "metrics": {
+    "Accuracy": 0.7764900662251656,
+    "Precision": 0.7792642140468228,
+    "Recall": 0.7715231788079471,
+    "F1": 0.7753743760399334,
+    "ROC_AUC": 0.842517872023157,
+    "Brier": 0.1589252847682119
+  },
+  "k": 3,
+  "timing": {
+    "total_subsets": 255,
+    "elapsed_sec": 678.0,
+    "mean_subset_sec": 2.658627843137255
+  },
+  "config": {
+    "N_SPLITS": 5,
+    "RANDOM_STATE": 42
+  }
+}

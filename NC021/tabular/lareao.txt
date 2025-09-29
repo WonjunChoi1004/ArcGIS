@@ -1,0 +1,8 @@
+"Climate Factor Area (USLE)"|"0"|"Climate Factor"|422483|"14795"|"588566"
+"County or Parish"|"NC021"|"Buncombe"|422483|"14795"|"588567"
+"MLRA"|"130B"|"Southern Blue Ridge"|422483|"14795"|"588568"
+"MLRA Soil Survey Area"|"SE-WAY"|"Waynesville, North Carolina"|422483|"14795"|"588569"
+"MLRA Soil Survey Regional Office Area"|"18obsolete"|"Lexington, KY"|422483|"14795"|"588570"
+"National Park Service Land"|"BLRI"|"Blue Ridge Parkway"||"14795"|"588571"
+"Rainfall Factor Area (USLE)"|"200"|"Rainfall Factor"|422483|"14795"|"588572"
+"State or Territory"|"NC"|"North Carolina"|422483|"14795"|"588573"

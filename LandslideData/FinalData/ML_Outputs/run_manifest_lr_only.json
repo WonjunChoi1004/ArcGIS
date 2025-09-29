@@ -1,0 +1,66 @@
+{
+  "data_path": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv",
+  "output_root": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs",
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true
+  },
+  "feature_sets": {
+    "F0": [
+      "Avg_Rainfall_30day",
+      "Max_Rainfall_30day",
+      "Max_Rainfall_3day",
+      "R1d",
+      "R3d",
+      "R7d",
+      "R30d",
+      "API_14"
+    ],
+    "F1": [
+      "Avg_Rainfall_30day",
+      "Max_Rainfall_30day",
+      "Max_Rainfall_3day",
+      "R1d",
+      "R3d",
+      "R7d",
+      "R30d",
+      "API_14",
+      "Elevation_m",
+      "Slope_deg"
+    ],
+    "F2": [
+      "Avg_Rainfall_30day",
+      "Max_Rainfall_30day",
+      "Max_Rainfall_3day",
+      "R1d",
+      "R3d",
+      "R7d",
+      "R30d",
+      "API_14",
+      "Elevation_m",
+      "Slope_deg",
+      "Soil_Depth_Deep200_Flag"
+    ]
+  },
+  "models": [
+    {
+      "name": "LogReg",
+      "solver": "lbfgs",
+      "max_iter": 2000
+    }
+  ],
+  "artifacts": {
+    "V0_results_csv": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs/results_main_V0.csv",
+    "combined_roc": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs/LogisticRegression/roc_curves_all.png",
+    "per_set_folder": "ML_Outputs/LogisticRegression/F*/",
+    "inference_tables": {
+      "F0": "ML_Outputs/Inference/LR_F0/logreg_coefficients_F0.csv",
+      "F1": "ML_Outputs/Inference/LR_F1/logreg_coefficients_F1.csv",
+      "F2": "ML_Outputs/Inference/LR_F2/logreg_coefficients_F2.csv"
+    },
+    "temporal_V1_rf": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs/results_temporal_V1_rf.csv",
+    "temporal_V1_skipped": "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs/results_temporal_V1_skipped.csv",
+    "predictions_lr": "ML_Outputs/LogisticRegression/F*/test_predictions_LogReg_*.csv"
+  }
+}
