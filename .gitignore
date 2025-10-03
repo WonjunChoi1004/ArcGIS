@@ -1,13 +1,41 @@
-# Ignore large or unnecessary data files
-*.tif
-*.bil
-*.zip
-*.aux.xml
-*.stn.csv
-*.csv
-
-# Ignore external or sensitive folders
-RainfallData/
-SlopeData/
-venv/
+# Python / IDE
 __pycache__/
+*.pyc
+.env
+.venv/
+venv/
+.idea/
+*.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Build / temp
+*.log
+tmp/
+cache/
+
+# Data & heavy GIS
+data/
+Data/
+**/*.tif
+**/*.tiff
+**/*.img
+**/*.bil
+**/*.vrt
+**/*.zip
+
+# Shapefile components (treat as data)
+**/*.shp
+**/*.shx
+**/*.dbf
+**/*.prj
+**/*.cpg
+**/*.qpj
+
+# Geo packages / models
+**/*.gpkg
+**/*.mdb
+models/
+**/*.joblib
+**/*.pkl
