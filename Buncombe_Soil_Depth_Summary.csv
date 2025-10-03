@@ -1,0 +1,142 @@
+Map unit symbol,Map unit name,Rating (centimeters),Acres in AOI,Percent of AOI
+AcD,"Ashe-Cleveland-Rock outcrop complex, 15 to 30 percent slopes, very stony",76,"2,316.30",0.50%
+ArE,"Ashe-Cleveland-Rock outcrop complex, 30 to 50 percent slopes, very bouldery",76,"8,538.10",2.00%
+ArF,"Ashe-Cleveland-Rock outcrop complex, 50 to 95 percent slopes, very bouldery",76,"12,707.20",3.00%
+BaD,"Balsam-Tanasee complex, 15 to 30 percent slopes, extremely bouldery",>200,221.4,0.10%
+BaE,"Balsam-Tanasee complex, 30 to 50 percent slopes, extremely bouldery",>200,"1,356.40",0.30%
+BeA,"Biltmore loamy sand, 0 to 3 percent slopes, occasionally flooded",>200,559.4,0.10%
+BkB2,"Braddock clay loam, 2 to 8 percent slopes, moderately eroded",>200,445.3,0.10%
+BkC2,"Braddock clay loam, 8 to 15 percent slopes, moderately eroded",>200,876.8,0.20%
+BkD2,"Braddock clay loam, 15 to 30 percent slopes, moderately eroded",>200,534.1,0.10%
+BnB,"Braddock-Urban land complex, 2 to 8 percent slopes",>200,201.9,0.00%
+BnC,"Braddock-Urban land complex, 8 to 15 percent slopes",>200,187.1,0.00%
+BpF,"Breakneck-Pullback complex, windswept, 50 to 95 percent slopes, very rocky",71,8.9,0.00%
+BwD,"Burton-Craggey complex, windswept, 15 to 30 percent slopes, rocky",74,410,0.10%
+BxE,"Burton-Craggey-Rock outcrop complex, windswept, 30 to 50 percent slopes, very bouldery",74,"1,510.50",0.40%
+BxF,"Burton-Craggey-Rock outcrop complex, windswept, 50 to 95 percent slopes, very bouldery",74,"2,261.40",0.50%
+CaE,"Cataska-Sylco complex, 30 to 50 percent slopes, very rocky",41,64.4,0.00%
+CdF,"Cataska-Sylco-Rock outcrop complex, 50 to 95 percent slopes, very stony",30,425.2,0.10%
+ChD,"Cheoah-Jeffrey complex, 15 to 30 percent slopes, stony",130,20.4,0.00%
+ChE,"Cheoah-Jeffrey complex, 30 to 50 percent slopes, stony",130,39.3,0.00%
+ChF,"Cheoah-Jeffrey complex, 50 to 95 percent slopes, stony",130,78.6,0.00%
+CkB2,"Clifton clay loam, 2 to 8 percent slopes, moderately eroded",>200,"2,279.60",0.50%
+CkC2,"Clifton clay loam, 8 to 15 percent slopes, moderately eroded",>200,"19,903.20",4.70%
+CkD2,"Clifton clay loam, 15 to 30 percent slopes, moderately eroded",>200,"16,710.00",4.00%
+CkE2,"Clifton clay loam, 30 to 50 percent slopes, moderately eroded",>200,"2,014.10",0.50%
+CsB,"Clifton sandy loam, 2 to 8 percent slopes",>200,924.5,0.20%
+CsC,"Clifton sandy loam, 8 to 15 percent slopes",>200,"2,757.70",0.70%
+CsD,"Clifton sandy loam, 15 to 30 percent slopes",>200,"2,201.30",0.50%
+CuB,"Clifton-Urban land complex, 2 to 8 percent slopes",>200,"2,245.90",0.50%
+CuC,"Clifton-Urban land complex, 8 to 15 percent slopes",>200,"6,109.40",1.40%
+CuD,"Clifton-Urban land complex, 15 to 30 percent slopes",>200,"3,499.50",0.80%
+CxE,"Craggey-Rock outcrop-Clingman complex, windswept, 30 to 50 percent slopes, rubbly",36,597.4,0.10%
+CxF,"Craggey-Rock outcrop-Clingman complex, windswept, 50 to 95 percent slopes, rubbly",36,"1,086.10",0.30%
+DAM,Dam,>200,46.2,0.00%
+DeA,"Dellwood-Reddies complex, 0 to 3 percent slopes, occasionally flooded",41,"1,613.40",0.40%
+DrB,"Dillard loam, 1 to 5 percent slopes, rarely flooded",>200,"1,752.80",0.40%
+EdC,"Edneyville-Chestnut complex, 8 to 15 percent slopes, stony",>200,107.5,0.00%
+EdD,"Edneyville-Chestnut complex, basin, 15 to 30 percent slopes, stony",>200,"8,971.00",2.10%
+EdE,"Edneyville-Chestnut complex, basin, 30 to 50 percent slopes, stony",>200,"29,986.80",7.10%
+EdF,"Edneyville-Chestnut complex, 50 to 95 percent slopes, stony",>200,"23,090.80",5.50%
+EvD2,"Evard-Cowee complex, 15 to 30 percent slopes, moderately eroded",>200,"23,438.50",5.50%
+EvE2,"Evard-Cowee complex, 30 to 50 percent slopes, moderately eroded",>200,"18,389.80",4.40%
+EvF2,"Evard-Cowee complex, 50 to 95 percent slopes, moderately eroded",>200,488.9,0.10%
+EwC,"Evard-Cowee complex, basin, 8 to 15 percent slopes, stony",>200,"1,419.40",0.30%
+EwD,"Evard-Cowee complex, basin, 15 to 30 percent slopes, stony",>200,"16,980.70",4.00%
+EwE,"Evard-Cowee complex, basin, 30 to 50 percent slopes, stony",>200,"22,387.70",5.30%
+EwF,"Evard-Cowee complex, basin, 50 to 95 percent slopes, stony",>200,"2,866.40",0.70%
+ExC,"Evard-Cowee-Urban land complex, 8 to 15 percent slopes",>200,998.4,0.20%
+ExD,"Evard-Cowee-Urban land complex, 15 to 30 percent slopes",>200,"3,308.80",0.80%
+ExE,"Evard-Cowee-Urban land complex, 30 to 50 percent slopes",>200,853.3,0.20%
+FaC2,"Fannin-Lauada complex, 8 to 15 percent slopes, moderately eroded",>200,559.7,0.10%
+FaD2,"Fannin-Lauada complex, 15 to 30 percent slopes, moderately eroded",>200,"1,324.00",0.30%
+FaE2,"Fannin-Lauada complex, 30 to 50 percent slopes, moderately eroded",>200,910,0.20%
+FnB,"Fannin-Lauada-Urban land complex, 2 to 8 percent slopes",>200,151.8,0.00%
+FnC,"Fannin-Lauada-Urban land complex, 8 to 15 percent slopes",>200,203.3,0.00%
+FnD,"Fannin-Lauada-Urban land complex, 15 to 30 percent slopes",>200,248.9,0.10%
+FrA,"French loam, 0 to 3 percent slopes, occasionally flooded",76,"6,009.40",1.40%
+HcE,"Heintooga-Chiltoskie complex, 30 to 50 percent slopes, very stony",>200,10,0.00%
+HpA,"Hemphill loam, 0 to 3 percent slopes, rarely flooded",>200,358.3,0.10%
+IoA,"Iotla loam, 0 to 2 percent slopes, occasionally flooded",>200,"1,670.00",0.40%
+JbB,"Junaluska-Brasstown complex, 2 to 8 percent slopes",91,326.6,0.10%
+JbC,"Junaluska-Brasstown complex, basin, 8 to 15 percent slopes",81,"1,606.10",0.40%
+JbD,"Junaluska-Brasstown complex, basin, 15 to 30 percent slopes",81,"2,914.00",0.70%
+JbE,"Junaluska-Brasstown complex, basin, 30 to 50 percent slopes",81,"1,419.90",0.30%
+KsB,"Kanuga-Swannanoa complex, 2 to 8 percent slopes",>200,233.1,0.10%
+KsC,"Kanuga-Swannanoa complex, 8 to 15 percent slopes",>200,123.8,0.00%
+MvD,"Mars hill-Walnut complex, 15 to 30 percent slopes, stony",117,737,0.20%
+MvE,"Mars hill-Walnut complex, 30 to 50 percent slopes, stony",117,"1,964.30",0.50%
+MvF,"Mars hill-Walnut complex, 50 to 95 percent slopes, stony",117,214.2,0.10%
+MwD,"Micaville-Brownwood complex, 15 to 30 percent slopes, stony",130,310,0.10%
+MwE,"Micaville-Brownwood complex, 30 to 50 percent slopes, stony",130,560.3,0.10%
+MwF,"Micaville-Brownwood complex, 50 to 95 percent slopes, stony",130,355.5,0.10%
+NkA,"Nikwasi loam, 0 to 2 percent slopes, frequently flooded",66,188.8,0.00%
+NtD,"Northcove-Maymead complex, 15 to 30 percent slopes, very stony",>200,508,0.10%
+NtE,"Northcove-Maymead complex, 30 to 50 percent slopes, very stony",>200,194.4,0.00%
+OwC,"Oconaluftee-Guyot-Cataloochee complex, windswept, 8 to 15 percent slopes, bouldery",>200,3.4,0.00%
+OwD,"Oconaluftee-Guyot-Cataloochee complex, windswept, 15 to 30 percent slopes, bouldery",>200,11.6,0.00%
+OwE,"Oconaluftee-Guyot-Cataloochee complex, windswept, 30 to 50 percent slopes, bouldery",>200,20.9,0.00%
+OwF,"Oconaluftee-Guyot-Cataloochee complex, windswept, 50 to 95 percent slopes, bouldery",>200,24.1,0.00%
+Pg,"Pits, gravel, occasionally flooded",>200,145.4,0.00%
+Pt,"Pits, quarry",0,430.9,0.10%
+PwC,"Porters-Unaka complex, 8 to 15 percent slopes, stony",137,205.5,0.00%
+PwD,"Porters-Unaka complex, 15 to 30 percent slopes, stony",137,"2,020.70",0.50%
+PwE,"Porters-Unaka complex, 30 to 50 percent slopes, stony",137,"7,335.20",1.70%
+PxF,"Porters-Unaka complex, 50 to 95 percent slopes, rocky",137,"11,003.30",2.60%
+RdA,"Reddies sandy loam, 0 to 3 percent slopes, occasionally flooded",66,768.7,0.20%
+RkF,"Rock outcrop-Cleveland complex, 30 to 95 percent slopes, very bouldery",0,"2,250.60",0.50%
+RoF,"Rock outcrop-Oteen complex, 30 to 95 percent slopes, very bouldery",0,"1,147.60",0.30%
+RsA,"Rosman fine sandy loam, 0 to 3 percent slopes, occasionally flooded",>200,"1,339.10",0.30%
+SoD,"Soco-Stecoah complex, basin, 15 to 30 percent slopes, stony",86,101,0.00%
+SoE,"Soco-Stecoah complex, basin, 30 to 50 percent slopes, stony",86,342.7,0.10%
+SoF,"Soco-Stecoah complex, basin, 50 to 95 percent slopes, stony",86,480.4,0.10%
+StB,"Statler loam, 1 to 5 percent slopes, rarely flooded",>200,996.9,0.20%
+SyD,"Sylco-Soco complex, 15 to 30 percent slopes, stony",58,304.4,0.10%
+SyE,"Sylco-Soco complex, 30 to 50 percent slopes, stony",58,826,0.20%
+SzF,"Sylco-Soco complex, 50 to 95 percent slopes, very stony",58,"1,214.70",0.30%
+TaB,"Tate loam, basin, 2 to 8 percent slopes",>200,"5,057.30",1.20%
+TaC,"Tate loam, basin, 8 to 15 percent slopes",>200,"13,993.60",3.30%
+TaD,"Tate loam, basin, 15 to 30 percent slopes",>200,"7,409.60",1.80%
+TkC,"Tate loam, basin, 8 to 15 percent slopes, very stony",>200,731.2,0.20%
+TkD,"Tate loam, basin, 15 to 30 percent slopes, very stony",>200,"2,759.60",0.70%
+TmB,"Tate-Urban land complex, 2 to 8 percent slopes",>200,855.6,0.20%
+TmC,"Tate-Urban land complex, 8 to 15 percent slopes",>200,"2,889.00",0.70%
+TmD,"Tate-Urban land complex, 15 to 30 percent slopes",>200,712.6,0.20%
+TnE,"Toecane very cobbly loam, 30 to 50 percent slopes, extremely bouldery",>200,963.9,0.20%
+ToC,"Toecane-Tusquitee complex, 8 to 15 percent slopes, bouldery",>200,"3,074.40",0.70%
+TpD,"Toecane-Tusquitee complex, 15 to 30 percent slopes, very bouldery",>200,"17,675.80",4.20%
+TpE,"Toecane-Tusquitee complex, 30 to 50 percent slopes, very bouldery",>200,"19,600.20",4.60%
+TsA,"Toxaway loam, 0 to 2 percent slopes, frequently flooded",>200,201.6,0.00%
+TtE,"Trimont loam, 30 to 50 percent slopes, stony",>200,305.5,0.10%
+TuD,"Tusquitee-Toecane complex, 15 to 30 percent slopes, stony",>200,579.4,0.10%
+TwB,"Tusquitee-Whiteside complex, 2 to 8 percent slopes",>200,421,0.10%
+TwC,"Tusquitee-Whiteside complex, 8 to 15 percent slopes",>200,984.6,0.20%
+UcB,"Udifluvents, sandy, 0 to 5 percent slopes, frequently flooded",>200,28.5,0.00%
+Ud,"Udorthents, loamy",>200,"3,229.90",0.80%
+UfB,"Udorthents-Urban land complex, 0 to 5 percent slopes, occasionally flooded",>200,"1,697.90",0.40%
+UhE,"Udorthents-Urban land complex, 2 to 50 percent slopes",>200,"8,879.10",2.10%
+UkD,"Unaka-Rock outcrop complex, 15 to 30 percent slopes, very bouldery",69,251.3,0.10%
+UkE,"Unaka-Rock outcrop complex, 30 to 50 percent slopes, very bouldery",69,"1,585.60",0.40%
+UkF,"Unaka-Rock outcrop complex, 50 to 95 percent slopes, very bouldery",69,"5,088.70",1.20%
+UnB,"Unison loam, 2 to 8 percent slopes",>200,758.5,0.20%
+UnC,"Unison loam, 8 to 15 percent slopes",>200,956.2,0.20%
+UnD,"Unison loam, 15 to 30 percent slopes",>200,120.9,0.00%
+UrB,"Unison-Urban land complex, 2 to 8 percent slopes",>200,188.2,0.00%
+UrC,"Unison-Urban land complex, 8 to 15 percent slopes",>200,119.6,0.00%
+Ux,Urban land,>200,"4,696.50",1.10%
+W,Water,>200,"2,964.40",0.70%
+WaC2,"Walnut-Oteen-Mars hill complex, 8 to 15 percent slopes, moderately eroded",68,560.6,0.10%
+WaD2,"Walnut-Oteen-Mars hill complex, 15 to 30 percent slopes, moderately eroded",68,"2,042.30",0.50%
+WaE2,"Walnut-Oteen-Mars hill complex, 30 to 50 percent slopes, moderately eroded",68,"2,890.70",0.70%
+WnF,"Walnut-Oteen-Rock outcrop complex, 50 to 95 percent slopes",68,904.6,0.20%
+WoE,"Wayah-Burton complex, 30 to 50 percent slopes, bouldery",>200,118.6,0.00%
+WpF,"Wayah-Burton complex, 50 to 95 percent slopes, very rocky",>200,667.7,0.20%
+WrC,"Wayah-Burton complex, windswept, 8 to 15 percent slopes, bouldery",>200,26.4,0.00%
+WrD,"Wayah-Burton complex, windswept, 15 to 30 percent slopes, bouldery",>200,333.3,0.10%
+WrE,"Wayah-Burton complex, windswept, 30 to 50 percent slopes, bouldery",>200,668.1,0.20%
+WsF,"Wayah-Burton complex, windswept, 50 to 95 percent slopes, very rocky",>200,505.8,0.10%
+WtB,"Whiteside loam, 2 to 8 percent slopes",>200,227.3,0.10%
+WtC,"Whiteside loam, 8 to 15 percent slopes",>200,270.3,0.10%
+ZcB,"Zillicoa loam, 2 to 8 percent slopes",122,7.1,0.00%
+ZcC,"Zillicoa loam, 8 to 15 percent slopes",122,128.2,0.00%
+ZoD,"Zillicoa loam, 15 to 30 percent slopes, stony",122,372.4,0.10%
