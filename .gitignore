@@ -39,3 +39,11 @@ Data/
 models/
 **/*.joblib
 **/*.pkl
+# heavy data (keep out of git)
+RainfallData/
+SlopeData/
+**/*.tif
+**/*.bil
+**/*.img
+**/*.vrt
+**/*.zip
