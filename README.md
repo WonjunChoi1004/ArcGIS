@@ -29,7 +29,7 @@ The work establishes the foundation for the modeling framework by preparing stan
 - [SSURGO (NRCS)](https://websoilsurvey.nrcs.usda.gov/) — soil polygons and tabular data (chorizon/component) for Buncombe; used to derive depth and binary flag (>200 cm).  
 - [US Census Bureau](https://www.census.gov/) — county boundaries used for clipping and sampling.  
 
-> **Note:** Raw rasters and shapefiles are not included in this repository. They can be downloaded from the above links and placed in your local `data/` or `LandslideData/` directories.
+> **Note:** Rainfall data and DEM maps are not included in this repository. They can be downloaded from the above links and placed in your local `data/` or `LandslideData/` directories.
 
 ---
 
