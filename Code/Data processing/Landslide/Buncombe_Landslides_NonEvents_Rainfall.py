@@ -8,7 +8,7 @@ from datetime import timedelta
 
 INPUT_CSV    = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/Landslides_NonEvents_dates_Sorted.csv"
 RAINFALL_DIR = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/Rainfall"
-OUT_DIR      = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData"
+OUT_DIR      = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/Rainfall_Processing"
 
 # ---- CHANGE THESE EACH RUN ----
 MODE         = "non_events"        # "events" or "non_events"

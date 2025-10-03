@@ -7,11 +7,11 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-DATA_DIR = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData"
+DATA_DIR = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/"
 
 # Expected patterns produced earlier
-LAND_GLOB = "Processed_Landslides_*.csv"
-NON_GLOB  = "Processed_NonLandslides_*.csv"
+LAND_GLOB = "Rainfall_Processing/Processed_Landslides_*.csv"
+NON_GLOB  = "Rainfall_Processing/Processed_NonLandslides_*.csv"
 
 # Columns to keep (add here if you computed more)
 RAIN_COLS = [

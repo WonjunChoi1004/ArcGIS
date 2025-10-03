@@ -23,15 +23,16 @@ The work establishes the foundation for the modeling framework by preparing stan
 
 ## Data Sources
 
-- [NC OneMap Landslide Inventory](https://www.nconemap.gov/) — 9,092 statewide points (1940–2024), 398 in Buncombe, 302 retained (1980–2024).  
-- [PRISM Climate Group](https://prism.oregonstate.edu/) — daily precipitation (1980–2024) used to build R1d, R3d, R7d, R30d, Max_3d, Max_30d windows.  
-- [USGS 3DEP DEM](https://www.sciencebase.gov/catalog/item/627f3798d34e3bef0c9a3198) — 1/3 arc-second (~10 m) resolution; derived slope and elevation.  
-- [SSURGO (NRCS)](https://websoilsurvey.nrcs.usda.gov/) — soil polygons and tabular data (chorizon/component) for Buncombe; used to derive depth and binary flag (>200 cm).  
-- [US Census Bureau](https://www.census.gov/) — county boundaries used for clipping and sampling.  
+- North Carolina Department of Environmental Quality. (2024). *North Carolina Landslide Inventory Points* [Data set]. NC OneMap. https://www.nconemap.gov/datasets/01965a193482438cb70332e5e524e38b_0/about  
+- PRISM Climate Group. (2024). *PRISM Daily Precipitation Data (1981–present)* [Data set]. Oregon State University. https://prism.oregonstate.edu/  
+- U.S. Geological Survey. (2022). *3D Elevation Program (3DEP), 1/3 arc-second DEM seamless products* [Data set]. https://www.sciencebase.gov/catalog/item/627f3798d34e3bef0c9a3198  
+- U.S. Department of Agriculture, Natural Resources Conservation Service. (2024). *Soil Survey Geographic (SSURGO) Database* [Data set]. https://websoilsurvey.nrcs.usda.gov/app/  
+- U.S. Geological Survey. (2021). *National Land Cover Database (NLCD) 2021* [Data set]. https://www.usgs.gov/centers/eros/science/national-land-cover-database  
+- U.S. Census Bureau. (2022). *Cartographic Boundary Shapefiles – Counties* [Data set]. https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html  
 
-> **Note:** Rainfall data and DEM maps are not included in this repository. They can be downloaded from the above links and placed in your local `data/` or `LandslideData/` directories.
+> **Note:** Rainfall data and DEM rasters are not included in this repository.  
+> They can be downloaded from the above sources and placed in your local `LandslideData/` or `RainfallData/Rainfall` directories.
 
----
 
 ## Project Structure
 
