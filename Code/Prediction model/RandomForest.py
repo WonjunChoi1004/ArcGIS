@@ -29,12 +29,12 @@ MODEL_NAME   = "RF"
 N_TREES      = 500
 MAX_WATERFALLS = 3
 
-RAIN    = ['Max_Rainfall_30day', 'Max_Rainfall_3day', 'R1d', 'R3d']
+RAIN    = ['Max_Rainfall_30day', 'Max_Rainfall_3day', 'R7d', 'R30d']
 TERRAIN = ["Elevation_m","Slope_deg"]
 SOIL    = ["Soil_Depth_Deep200_Flag"]
 
 FEATURE_SETS = OrderedDict({
-    "F0": RAIN,
+    "F0": TERRAIN,
     "F1": RAIN + TERRAIN,
     "F2": RAIN + TERRAIN + SOIL
 })

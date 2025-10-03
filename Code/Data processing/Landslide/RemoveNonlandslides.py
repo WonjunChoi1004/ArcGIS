@@ -6,7 +6,7 @@ from pathlib import Path
 
 DATA_DIR = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData")
 IN_PATH  = DATA_DIR / "All_Combined.csv"
-OUT_PATH = DATA_DIR / "All_Combined_Balanced_EqualCounts.csv"
+OUT_PATH = DATA_DIR / "ML_Outputs/All_Combined_Balanced_EqualCounts.csv"
 SEED     = 42  # change if you want a different random draw
 
 df = pd.read_csv(IN_PATH)

@@ -1,109 +1,135 @@
-# Landslide Prediction in Buncombe County
+# Landslide Dataset Construction in Buncombe County
 
-This project develops a **GIS- and machine learning–based framework** to predict landslide occurrence in Buncombe County, NC.  
-It integrates rainfall, slope, soil, and land cover data to create a **real-time hazard prediction system** and supports interpretability through SHAP values and feature importance analysis.  
+This project compiles a **GIS-based dataset** to support landslide prediction modeling in Buncombe County, NC.  
+It integrates landslide inventory points, rainfall windows, DEM-derived slope, and soil depth to create a **balanced event/non-event dataset** for machine learning experiments.  
 
-The work also forms the basis for a research paper on localized landslide risk modeling.
+The work establishes the foundation for the modeling framework by preparing standardized, reproducible inputs.
 
 ---
 
 ## Project Overview
 
-- **Goal:** Identify areas at high risk of rainfall-induced landslides in Buncombe County using environmental data and machine learning models.  
+- **Goal:** Build a balanced dataset of rainfall-induced landslide events and non-events in Buncombe County.  
 - **Methods:**  
-  - Static grid creation from DEM and soil shapefiles  
-  - Rainfall window aggregation (short- and long-term PRISM data)  
-  - Training and evaluation of ML classifiers (Logistic Regression, Random Forest, XGBoost)  
-  - Explainable AI (SHAP values, feature importance) for model interpretation  
-- **Output:** Hazard probability maps and performance metrics (ROC, confusion matrix, feature rankings).
-
----
-
-## Project Structure
-
-- `build_static_grid_from_existing_assets.py` — Builds base grid combining DEM, slope, soil, and depth data  
-- `RainfallBuncombe.py` — Processes PRISM rainfall data for Buncombe County  
-  ![Rainfall](Images/RainfallBuncombe.png)
-
-- `BuncombeLandslideSlopeMap.py` — Combines slope maps with historic landslide points for visualization  
-  ![Slope and Historic Landslides](Images/SlopeAndHistoricLandslideBuncombe.png)
-
-- `predict_daily_triple.py` — Generates real-time rainfall–slope–soil predictions on the grid
-
-- `main.py` — Orchestrates the full pipeline: raw inputs → processed features → ML predictions  
-
-- **Model performance outputs:**  
-  - ROC Curve  
-    ![ROC Curve](Images/ROCCurveRF.png)  
-  - Confusion Matrix  
-    ![Confusion Matrix](Images/ConfusionMatrixRF.png)  
-  - Predicted Landslide Map (Random Forest model)  
-    ![Landslide Map](Images/LandslideMapRFBuncombe.png)
+  - Extract Buncombe County events from NC OneMap’s landslide inventory  
+  - Generate equal-count non-events (random dates/locations)  
+  - Aggregate rainfall windows from daily PRISM data (1980–2024)  
+  - Add topographic predictors (elevation, slope from USGS DEM)  
+  - Join SSURGO soil data and encode depth as binary flag  
+  - Output balanced dataset for machine learning models  
+- **Output:** Final CSV with events and controls enriched with rainfall, slope, elevation, and soil depth.
 
 ---
 
 ## Data Sources
 
-- [USGS DEM / Elevation](https://www.usgs.gov/)  
-- [NC OneMap Landslide Inventory](https://www.nconemap.gov/)  
-- [PRISM Climate Group](https://prism.oregonstate.edu/) — rainfall normals and daily precipitation  
-- [SSURGO (NRCS)](https://www.nrcs.usda.gov/) — soil depth and texture data  
-- [US Census TIGER/Line Shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) — county boundaries  
-- [NLCD Land Cover Database](https://www.mrlc.gov/) — land cover/vegetation classes  
+- [NC OneMap Landslide Inventory](https://www.nconemap.gov/) — 9,092 statewide points (1940–2024), 398 in Buncombe, 302 retained (1980–2024).  
+- [PRISM Climate Group](https://prism.oregonstate.edu/) — daily precipitation (1980–2024) used to build R1d, R3d, R7d, R30d, Max_3d, Max_30d windows.  
+- [USGS 3DEP DEM](https://www.sciencebase.gov/catalog/item/627f3798d34e3bef0c9a3198) — 1/3 arc-second (~10 m) resolution; derived slope and elevation.  
+- [SSURGO (NRCS)](https://websoilsurvey.nrcs.usda.gov/) — soil polygons and tabular data (chorizon/component) for Buncombe; used to derive depth and binary flag (>200 cm).  
+- [US Census Bureau](https://www.census.gov/) — county boundaries used for clipping and sampling.  
 
-> **Note:** Large rasters and shapefiles (DEM, PRISM, SSURGO) are excluded from this repository.  
-> They can be downloaded from the above sources and placed into a local `data/` directory.
+> **Note:** Raw rasters and shapefiles are not included in this repository. They can be downloaded from the above links and placed in your local `data/` or `LandslideData/` directories.
 
 ---
 
-## Installation
+## Project Structure
 
-```bash
-git clone git@github.com:WonjunChoi1004/ArcGIS.git
-cd ArcGIS
-pip install -r requirements.txt
-```
+- `Code/Data processing/Landslide/Buncombe_Landslides_With_NonEvents_sorted.py`  
+  Selects Buncombe landslides from statewide dataset, generates equal non-events.  
 
-## How to Run
+- `Code/Data processing/Landslide/Buncombe_Landslides_NonEvents_Rainfall.py`  
+  Computes rainfall features from PRISM in period chunks (1980–2004, 2005–2010, 2011–2016, 2017–2021).  
 
-1. **Build static grid (DEM, slope, soil, land cover):**  
-   Run `python "Code/Data processing/Website/build_static_grid_from_existing_assets.py"`
+- `Code/Data processing/Landslide/Merge_Buncombe_Lanslides_NonEvents_Rainfall.py`  
+  Merges processed chunks into a single dataset.  
 
-2. **Process rainfall data:**  
-   Run `python RainfallBuncombe.py`
+- `Code/Data processing/Landslide/RemoveNonlandslides.py`  
+  Balances event/non-event counts exactly.  
 
-3. **Run prediction pipeline:**  
-   Run `python main.py`
+- `Code/Data processing/Soil/Buncombe_Landslides_SoilData.py`  
+  Adds slope, elevation, soil depth flag to dataset.  
 
-The pipeline outputs a **GeoDataFrame** containing grid points with environmental predictors and a predicted landslide probability.  
-
----
-
-## Output
-
-- Unified GeoDataFrame with:  
-  - `Slope`  
-  - `Rainfall (1-day, 7-day, 30-day)`  
-  - `Soil depth`  
-  - `Land cover`  
-  - `IsLandslide` (binary label for supervised learning)  
-
-- Model performance metrics: ROC AUC, precision, recall, confusion matrix  
-- SHAP values and feature importance plots  
-- Landslide probability map for Buncombe County  
+- **Final dataset:**  
+  `LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv`
 
 ---
 
-## Applications
+## Data Processing Workflow
 
-- Local hazard mapping and disaster preparedness  
-- Real-time risk assessment for emergency managers  
-- Academic research on rainfall-triggered landslide prediction  
+1. **Inventory Extraction:**  
+   - Start with NC OneMap landslide points (`North_Carolina_Landslide_Points.csv`).  
+   - 9,092 statewide → 398 in Buncombe → **302 retained** (1980–2024).  
+
+2. **Non-Events:**  
+   - Generate 302 random points/dates within Buncombe (1980–2024).  
+
+3. **Rainfall Features:**  
+   - Download daily PRISM (1980–2024).  
+   - Compute R1d, R3d, R7d, R30d, Max_Rainfall_3day, Max_Rainfall_30day.  
+
+4. **Topography:**  
+   - DEM (USGS 3DEP 1/3″) → `Elevation_m`, `Slope_deg`.  
+
+5. **Soils:**  
+   - Join SSURGO MUKEY/MUSYM at each point.  
+   - Convert soil depth into numeric cm and binary flag (`Soil_Depth_Deep200_Flag`).  
+
+6. **Final Merge:**  
+   - Combine events, non-events, rainfall, slope, elevation, soil depth.  
+   - Export as CSV for model training.  
 
 ---
+
+## Data Dictionary
+
+| **Column**               | **Units / Type**     | **Description**                                                                 |
+|---------------------------|----------------------|---------------------------------------------------------------------------------|
+| `IsLandslide`            | Binary (0/1)        | Target label: `1` = landslide event, `0` = non-event.                           |
+| `Event_Date` / `Random_Date` | Date (YYYY-MM-DD) | Date of landslide occurrence or assigned non-event date.                        |
+| `X`, `Y`                 | Meters (EPSG:32119) | Projected coordinates of sample point (NAD83 / NC State Plane).                 |
+| `County`                 | String              | County name (all Buncombe for this dataset).                                    |
+| `Elevation_m`            | Meters              | Ground surface elevation from DEM (USGS 3DEP 1/3 arc-second).                   |
+| `Slope_deg`              | Degrees             | Slope steepness calculated from DEM (Horn’s 3×3 finite difference).             |
+| `R1d`                    | Millimeters         | Total rainfall on event/control day.                                            |
+| `R3d`                    | Millimeters         | Cumulative rainfall over 3 days ending on event/control date.                   |
+| `R7d`                    | Millimeters         | Cumulative rainfall over 7 days ending on event/control date.                   |
+| `R30d`                   | Millimeters         | Cumulative rainfall over 30 days ending on event/control date.                  |
+| `Max_Rainfall_3day`      | Millimeters         | Rolling maximum of 3-day rainfall totals in the prior 30 days.                  |
+| `Max_Rainfall_30day`     | Millimeters         | Rolling maximum of 30-day rainfall totals in the prior 90 days.                 |
+| `Soil_Depth_cm`          | Centimeters         | Average soil depth from SSURGO map unit (numeric conversion of original rating).|
+| `Soil_Depth_Deep200_Flag`| Binary (0/1)        | Soil depth indicator: `1` = ≥200 cm, `0` = <200 cm.                             |
+| `MUKEY`, `MUSYM`         | String              | SSURGO soil map unit keys and symbols for location.                             |
+| `GlobalID`, `OBJECTID`   | String / Integer    | Original NC OneMap inventory identifiers.                                       |
+| `Data_Type`              | String              | Source classification of landslide record.                                      |
+| `Source_Period`          | String              | Temporal source period for landslide record.                                    |
+
+---
+
+## Dataset Construction Flow
+
+```mermaid
+flowchart TD
+    A[NC OneMap Landslide Inventory<br/>(9,092 statewide, 398 Buncombe,<br/>302 after 1980)]
+    B[Buncombe_Landslides_With_NonEvents_sorted.py<br/>(select Buncombe + 302 non-events)]
+    C[PRISM Daily Rainfall (1980–2024)<br/>R1d, R3d, R7d, R30d, Max_3d, Max_30d]
+    D[Buncombe_Landslides_NonEvents_Rainfall.py<br/>(compute rainfall windows in chunks)]
+    E[Merge_Buncombe_Lanslides_NonEvents_Rainfall.py<br/>→ Processed_All_Combined.csv]
+    F[RemoveNonlandslides.py<br/>(balance = 302 events + 302 non-events)]
+    G[USGS DEM (1/3 arc-sec)<br/>Elevation_m, Slope_deg]
+    H[SSURGO Soils (MUKEY/MUSYM)<br/>Soil_Depth_cm, Soil_Depth_Deep200_Flag]
+    I[Buncombe_Landslides_SoilData.py<br/>(add slope, elevation, soils)]
+    J[Final Dataset:<br/>All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv<br/>(604 samples total)]
+
+    A --> B --> D --> E --> F --> I --> J
+    C --> D
+    G --> I
+    H --> I
+```   
 
 ## Author
 
 **Wonjun Choi**  
-_Asheville School Research Project_  
-_Focus: Geotechnical hazard prediction using GIS and ML_
+_Asheville School Senior (Class of 2026)_  
+Student researcher focused on **geotechnical hazard prediction, GIS, and machine learning applications**.  
+This project is part of an independent research initiative on **rainfall-induced landslides in Western North Carolina**.
