@@ -1,66 +1,109 @@
 # Landslide Prediction in Buncombe County
 
-This project uses GIS, rainfall data, and machine learning to predict landslide occurrence in Buncombe County, NC.
+This project develops a **GIS- and machine learning–based framework** to predict landslide occurrence in Buncombe County, NC.  
+It integrates rainfall, slope, soil, and land cover data to create a **real-time hazard prediction system** and supports interpretability through SHAP values and feature importance analysis.  
 
-## 📁 Project Structure
+The work also forms the basis for a research paper on localized landslide risk modeling.
 
-## 📁 Project Structure
+---
 
-- `LandslideProcessing.py` — Generates random points, labels landslide and non-landslide data
+## Project Overview
 
+- **Goal:** Identify areas at high risk of rainfall-induced landslides in Buncombe County using environmental data and machine learning models.  
+- **Methods:**  
+  - Static grid creation from DEM and soil shapefiles  
+  - Rainfall window aggregation (short- and long-term PRISM data)  
+  - Training and evaluation of ML classifiers (Logistic Regression, Random Forest, XGBoost)  
+  - Explainable AI (SHAP values, feature importance) for model interpretation  
+- **Output:** Hazard probability maps and performance metrics (ROC, confusion matrix, feature rankings).
 
-- `RainfallBuncombe.py` — Processes rainfall data for Buncombe County  
+---
+
+## Project Structure
+
+- `build_static_grid_from_existing_assets.py` — Builds base grid combining DEM, slope, soil, and depth data  
+- `RainfallBuncombe.py` — Processes PRISM rainfall data for Buncombe County  
   ![Rainfall](Images/RainfallBuncombe.png)
 
-- `BuncombeLandslide&slopeMap.py` — Combines landslide and slope maps for visualization  
+- `BuncombeLandslideSlopeMap.py` — Combines slope maps with historic landslide points for visualization  
   ![Slope and Historic Landslides](Images/SlopeAndHistoricLandslideBuncombe.png)
 
-- `main.py` — Orchestrates full pipeline from raw data to model-ready dataset
+- `predict_daily_triple.py` — Generates real-time rainfall–slope–soil predictions on the grid
 
- — Model performance via ROC curve  
-  ![ROC Curve](Images/ROCCurveRF.png)
+- `main.py` — Orchestrates the full pipeline: raw inputs → processed features → ML predictions  
 
-— Classification performance summary  
-  ![Confusion Matrix](Images/ConfusionMatrixRF.png)
+- **Model performance outputs:**  
+  - ROC Curve  
+    ![ROC Curve](Images/ROCCurveRF.png)  
+  - Confusion Matrix  
+    ![Confusion Matrix](Images/ConfusionMatrixRF.png)  
+  - Predicted Landslide Map (Random Forest model)  
+    ![Landslide Map](Images/LandslideMapRFBuncombe.png)
 
-— Landslide Map using Random Forest Model
-  ![Landslide Map](Images/LandslideMapRFBuncombe.png)
+---
 
-## 📊 Data Sources
+## Data Sources
 
-- [USGS Landslide Inventory](https://www.usgs.gov/)
-- [PRISM Climate Group](https://prism.oregonstate.edu/)
-- [US Census TIGER/Line Shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
-- `PRISM_ppt_30yr_normals/` — PRISM rainfall data used in the analysis
-- `cb_2022_us_county_5m/` — Shapefiles for masking by county boundary
+- [USGS DEM / Elevation](https://www.usgs.gov/)  
+- [NC OneMap Landslide Inventory](https://www.nconemap.gov/)  
+- [PRISM Climate Group](https://prism.oregonstate.edu/) — rainfall normals and daily precipitation  
+- [SSURGO (NRCS)](https://www.nrcs.usda.gov/) — soil depth and texture data  
+- [US Census TIGER/Line Shapefiles](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) — county boundaries  
+- [NLCD Land Cover Database](https://www.mrlc.gov/) — land cover/vegetation classes  
 
-## 🚀 How to Run
+> **Note:** Large rasters and shapefiles (DEM, PRISM, SSURGO) are excluded from this repository.  
+> They can be downloaded from the above sources and placed into a local `data/` directory.
 
-1. **Install required Python libraries:**
+---
+
+## Installation
+
 ```bash
-pip install geopandas pandas shapely matplotlib
+git clone git@github.com:WonjunChoi1004/ArcGIS.git
+cd ArcGIS
+pip install -r requirements.txt
 ```
 
-2. **Run the processing script:**
-```bash
-python LandslideProcessing.py
-```
+## How to Run
 
-This will generate synthetic non-landslide points, merge them with actual landslide records, and output a labeled GeoDataFrame indicating whether each point is a landslide (1) or not (0).
+1. **Build static grid (DEM, slope, soil, land cover):**  
+   Run `python "Code/Data processing/Website/build_static_grid_from_existing_assets.py"`
 
-## 🔗 External Data Folder (not included in GitHub)
+2. **Process rainfall data:**  
+   Run `python RainfallBuncombe.py`
 
-Due to GitHub file size limits, large files are excluded. You can download the full dataset here:
+3. **Run prediction pipeline:**  
+   Run `python main.py`
 
-> [Google Drive Folder](https://drive.google.com/your_shared_link)
+The pipeline outputs a **GeoDataFrame** containing grid points with environmental predictors and a predicted landslide probability.  
 
-Place all downloaded files inside a local `data/` folder.
+---
 
-## 📌 Output
+## Output
 
-The final dataset includes a unified GeoDataFrame containing spatial coordinates and an `IsLandslide` binary label, ready for use in machine learning models such as logistic regression or decision trees.
+- Unified GeoDataFrame with:  
+  - `Slope`  
+  - `Rainfall (1-day, 7-day, 30-day)`  
+  - `Soil depth`  
+  - `Land cover`  
+  - `IsLandslide` (binary label for supervised learning)  
 
-## 🧠 Author
+- Model performance metrics: ROC AUC, precision, recall, confusion matrix  
+- SHAP values and feature importance plots  
+- Landslide probability map for Buncombe County  
 
-Wonjun Choi  
-Asheville School Research Project
+---
+
+## Applications
+
+- Local hazard mapping and disaster preparedness  
+- Real-time risk assessment for emergency managers  
+- Academic research on rainfall-triggered landslide prediction  
+
+---
+
+## Author
+
+**Wonjun Choi**  
+_Asheville School Research Project_  
+_Focus: Geotechnical hazard prediction using GIS and ML_
