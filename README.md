@@ -111,16 +111,16 @@ The work establishes the foundation for the modeling framework by preparing stan
 
 ```mermaid
 flowchart TD
-    A["NC OneMap Landslide Inventory\n(9,092 statewide, 398 Buncombe,\n302 after 1980)"]
-    B["Buncombe_Landslides_With_NonEvents_sorted.py\n(select Buncombe + 302 non-events)"]
-    C["PRISM Daily Rainfall (1980-2024)\nR1d, R3d, R7d, R30d, Max_3d, Max_30d"]
-    D["Buncombe_Landslides_NonEvents_Rainfall.py\n(compute rainfall windows in chunks)"]
-    E["Merge_Buncombe_Lanslides_NonEvents_Rainfall.py\n-> Processed_All_Combined.csv"]
-    F["RemoveNonlandslides.py\n(balance = 302 events + 302 non-events)"]
-    G["USGS DEM (1/3 arc-sec)\nElevation_m, Slope_deg"]
-    H["SSURGO Soils (MUKEY/MUSYM)\nSoil_Depth_cm, Soil_Depth_Deep200_Flag"]
-    I["Buncombe_Landslides_SoilData.py\n(add slope, elevation, soils)"]
-    J["Final Dataset:\nAll_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv\n(604 samples total)"]
+    A["NC OneMap Landslide Inventory<br>(9,092 statewide, 398 Buncombe,<br>302 after 1980)"]
+    B["Buncombe_Landslides_With_NonEvents_sorted.py<br>(select Buncombe + 302 non-events)"]
+    C["PRISM Daily Rainfall (1980-2024)<br>R1d, R3d, R7d, R30d, Max_3d, Max_30d"]
+    D["Buncombe_Landslides_NonEvents_Rainfall.py<br>(compute rainfall windows in chunks)"]
+    E["Merge_Buncombe_Lanslides_NonEvents_Rainfall.py<br>Processed_All_Combined.csv"]
+    F["RemoveNonlandslides.py<br>(balance = 302 events + 302 non-events)"]
+    G["USGS DEM (1/3 arc-sec)<br>Elevation_m, Slope_deg"]
+    H["SSURGO Soils (MUKEY/MUSYM)<br>Soil_Depth_cm, Soil_Depth_Deep200_Flag"]
+    I["Buncombe_Landslides_SoilData.py<br>(add slope, elevation, soils)"]
+    J["Final Dataset:<br>All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv<br>(604 samples total)"]
 
     A --> B --> D --> E --> F --> I --> J
     C --> D
