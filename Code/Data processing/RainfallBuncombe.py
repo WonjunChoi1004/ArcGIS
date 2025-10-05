@@ -8,10 +8,10 @@ from shapely.geometry import Point
 
 
 # === FILE PATHS ===
-county_shp = "MaskingData/cb_2022_us_county_500k.shp"
-rainfall_bil = "RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil"
-landslide_csv = "LandslideData/North_Carolina_Landslide_Points.csv"
-output_rainfall_tif = "RainfallData/rainfall_buncombe.tif"
+county_shp = "/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp"
+rainfall_bil = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil"
+landslide_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/North_Carolina_Landslide_Points.csv"
+output_rainfall_tif = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/rainfall_buncombe.tif"
 
 
 

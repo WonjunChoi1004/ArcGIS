@@ -8,9 +8,9 @@ from shapely.geometry import Point
 import matplotlib.pyplot as plt
 
 # --- Paths ---
-slope_path = "/SlopeData/slope_asheville.tif"
-county_shp_path = "/MaskingData/cb_2022_us_county_500k.shp"
-landslide_csv_path = "../../LandslideData/North_Carolina_Landslide_Points.csv"
+slope_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/slope_asheville.tif"
+county_shp_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp"
+landslide_csv_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/North_Carolina_Landslide_Points.csv"
 
 # --- Load slope raster ---
 with rasterio.open(slope_path) as src:
@@ -30,7 +30,7 @@ counties = counties.to_crs(raster_crs)
 buncombe = counties[(counties['STATEFP'] == '37') & (counties['NAME'] == 'Buncombe')]
 
 # --- Load landslide points (assumed projected) ---
-df = pd.read_csv(landslide_csv_path)
+df = pd.read_csv(landslide_csv_path, encoding="utf-8-sig")
 geometry = [Point(xy) for xy in zip(df["X"], df["Y"])]
 gdf = gpd.GeoDataFrame(df, geometry=geometry, crs="EPSG:32119")  # You confirmed EPSG:32119
 gdf = gdf.to_crs(raster_crs)

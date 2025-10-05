@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # === Load U.S. counties and filter for WNC ===
-counties = gpd.read_file("/MaskingData/cb_2022_us_county_500k.shp")
+counties = gpd.read_file("/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp")
 
 print(counties.head())
 print(counties['NAME'].unique())
@@ -22,9 +22,8 @@ wnc = counties[(counties['STATEFP'] == '37') & (counties['NAME'].isin(wnc_counti
 
 print("WNC shape count:", len(wnc))
 print("WNC bounds:", wnc.total_bounds)
-
 # === Load and clip PRISM rainfall raster ===
-with rasterio.open("/RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil") as src:
+with rasterio.open("/Users/wonjunchoi/PycharmProjects/ArcGIS//RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil") as src:
     wnc = wnc.to_crs(src.crs)  # reproject to match raster
     out_image, out_transform = mask(src, wnc.geometry, crop=True)
     out_meta = src.meta.copy()
