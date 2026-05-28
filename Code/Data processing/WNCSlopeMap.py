@@ -1,3 +1,5 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import numpy as np
 import matplotlib.pyplot as plt
 import rasterio
@@ -6,7 +8,7 @@ from matplotlib.colors import LightSource
 import geopandas as gpd
 
 # Step 1: Open your DEM file
-with rasterio.open('/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/dem_buncombe_32119.tif') as src:
+with rasterio.open(f'{PROJECT_ROOT}/SlopeData/dem_buncombe_32119.tif') as src:
     elevation = src.read(1)
     transform = src.transform
     raster_crs = src.crs
@@ -17,7 +19,7 @@ yres = -transform[4]
 dy, dx = np.gradient(elevation, yres, xres)
 slope = np.arctan(np.sqrt(dx**2 + dy**2)) * (180 / np.pi)
 # Step 3: Load and filter county shapefile
-counties = gpd.read_file('/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp')  # <- update path
+counties = gpd.read_file(f'{PROJECT_ROOT}/MaskingData/cb_2022_us_county_500k.shp')  # <- update path
 wnc_list = [
     'Buncombe', 'Haywood', 'Jackson', 'Henderson', 'Transylvania',
     'Macon', 'Swain', 'Madison', 'Yancey', 'Mitchell', 'Avery',

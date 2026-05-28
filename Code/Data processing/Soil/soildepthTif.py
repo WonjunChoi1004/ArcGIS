@@ -4,15 +4,16 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import rasterio
 from rasterio.features import rasterize
 from typing import Optional
 
-SOIL_PATH    = "/Users/wonjunchoi/PycharmProjects/ArcGIS/NC021/spatial/soilmu_a_nc021.shp"
+SOIL_PATH    = f"{PROJECT_ROOT}/NC021/spatial/soilmu_a_nc021.shp"
 SOIL_LAYER   = None  # set if using .gdb/.gpkg
-DEPTH_CSV    = "/Users/wonjunchoi/PycharmProjects/ArcGIS/Buncombe_Soil_Depth_Summary.csv"
-TEMPLATE_TIF = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/dem_buncombe_32119.tif"
-OUT_TIF      = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/static/Soil_Depth_Deep200_Flag.tif"
+DEPTH_CSV    = f"{PROJECT_ROOT}/Buncombe_Soil_Depth_Summary.csv"
+TEMPLATE_TIF = f"{PROJECT_ROOT}/SlopeData/dem_buncombe_32119.tif"
+OUT_TIF      = f"{PROJECT_ROOT}/LandslideData/static/Soil_Depth_Deep200_Flag.tif"
 
 if len(sys.argv) >= 5:
     SOIL_PATH, DEPTH_CSV, TEMPLATE_TIF, OUT_TIF = sys.argv[1:5]

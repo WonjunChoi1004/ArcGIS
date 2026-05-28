@@ -1,3 +1,5 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
@@ -6,10 +8,10 @@ from rasterio.warp import calculate_default_transform, reproject, Resampling
 import numpy as np
 
 # === File Paths ===
-input_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_With_SoilDepth.csv"
-dem_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/USGS_13_n36w083_20220512.tif"
-reprojected_dem = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/dem_buncombe_32119.tif"
-output_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_With_SoilDepth_Elevation_Slope.csv"
+input_csv = f"{PROJECT_ROOT}/LandslideData/All_With_SoilDepth.csv"
+dem_path = f"{PROJECT_ROOT}/SlopeData/USGS_13_n36w083_20220512.tif"
+reprojected_dem = f"{PROJECT_ROOT}/SlopeData/dem_buncombe_32119.tif"
+output_csv = f"{PROJECT_ROOT}/LandslideData/All_With_SoilDepth_Elevation_Slope.csv"
 
 # === Reproject DEM from EPSG:4269 (Geographic NAD83) to EPSG:32119 (NC State Plane, feet) ===
 with rasterio.open(dem_path) as src:

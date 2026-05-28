@@ -6,7 +6,7 @@
 U.S. Department of Agriculture, Natural Resources
 Conservation Service
 </origin>
-        <pubdate>20240909</pubdate>
+        <pubdate>20250902</pubdate>
         <title>
 Soil Survey Geographic (SSURGO) database for
 Buncombe County, North Carolina
@@ -61,7 +61,7 @@ Contact.
       <timeinfo>
         <rngdates>
           <begdate>20080415</begdate>
-          <enddate>20240909</enddate>
+          <enddate>20250902</enddate>
         </rngdates>
       </timeinfo>
       <current>publication date</current>
@@ -1048,6 +1048,34 @@ data were copied to the Soil Data Mart without change.
         <srcused>NASIS</srcused>
         <procdate>20240909</procdate>
       </procstep>
+      <procstep>
+        <procdesc>
+The Natural Resources Conservation Service State Soil Scientist or
+delegate, upon completion of data quality verification, determined
+that the tabular data should be released for official use. A
+selected set of map units and components in the soil survey legend was
+copied to a staging database, and rating values for selected
+interpretations were generated. The list of selected interpretations is
+stored in the database table named sainterp.
+</procdesc>
+        <srcused>NASIS</srcused>
+        <procdate>20250902</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>
+The Natural Resources Conservation Service State Soil Scientist or
+delegate verified that the labels on the digitized soil map units
+link to map units in the tabular database, and certified the joined
+data sets for release to the Soil Data Warehouse. A system assigned
+version number and date stamp were added and the data were copied to
+the data warehouse. The tabular data for the map units and components
+were extracted from the data warehouse and reformatted into the soil
+data delivery data model, then stored in the Soil Data Mart. The spatial
+data were copied to the Soil Data Mart without change.
+</procdesc>
+        <srcused>NASIS</srcused>
+        <procdate>20250902</procdate>
+      </procstep>
     </lineage>
   </dataqual>
   <spdoinfo>
@@ -1240,7 +1268,7 @@ delimited, ASCII file format.
     </stdorder>
   </distinfo>
   <metainfo>
-    <metd>20240924</metd>
+    <metd>20250920</metd>
     <metc>
       <cntinfo>
         <cntorgp>

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import shap
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 from collections import OrderedDict
 
 from sklearn.model_selection import train_test_split
@@ -18,8 +19,8 @@ from sklearn.metrics import (
 from xgboost import XGBClassifier
 
 # -------- Paths --------
-DATA_PATH = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
-ROOT_OUT  = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs")
+DATA_PATH = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
+ROOT_OUT  = Path(f"{PROJECT_ROOT}/LandslideData/FinalData/ML_Outputs")
 XGB_DIR   = ROOT_OUT / "XGBoost"
 (XGB_DIR / "_split_indices").mkdir(parents=True, exist_ok=True)
 

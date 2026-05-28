@@ -1,3 +1,5 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import rasterio
 from rasterio.mask import mask
 import geopandas as gpd
@@ -5,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # === Load U.S. counties and filter for WNC ===
-counties = gpd.read_file("/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp")
+counties = gpd.read_file(f"{PROJECT_ROOT}/MaskingData/cb_2022_us_county_500k.shp")
 
 print(counties.head())
 print(counties['NAME'].unique())
@@ -23,7 +25,7 @@ wnc = counties[(counties['STATEFP'] == '37') & (counties['NAME'].isin(wnc_counti
 print("WNC shape count:", len(wnc))
 print("WNC bounds:", wnc.total_bounds)
 # === Load and clip PRISM rainfall raster ===
-with rasterio.open("/Users/wonjunchoi/PycharmProjects/ArcGIS//RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil") as src:
+with rasterio.open(f"{PROJECT_ROOT}//RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil") as src:
     wnc = wnc.to_crs(src.crs)  # reproject to match raster
     out_image, out_transform = mask(src, wnc.geometry, crop=True)
     out_meta = src.meta.copy()

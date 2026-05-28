@@ -33,8 +33,8 @@ This export includes data for the following soil survey area(s):
 
 SSA symbol:             NC021
 SSA name:               Buncombe County, North Carolina
-SSA version:            22
-SSA version est.:       09/09/2024 12:24:48 PM
+SSA version:            23
+SSA version est.:       09/02/2025 06:48:41 PM
 Spatial format:         ESRI Shapefile
 Coordinate system:      Geographic Coordinate System (WGS84)
 

@@ -1,9 +1,11 @@
 import pandas as pd
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 
 # === FILES ===
-landslide_file = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_Processed_With_Soil_Code.csv"
-depth_file = "/Users/wonjunchoi/PycharmProjects/ArcGIS/Buncombe_Soil_Depth_Summary.csv"
-output_file = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_With_SoilDepth.csv"
+landslide_file = f"{PROJECT_ROOT}/LandslideData/All_Processed_With_Soil_Code.csv"
+depth_file = f"{PROJECT_ROOT}/Buncombe_Soil_Depth_Summary.csv"
+output_file = f"{PROJECT_ROOT}/LandslideData/All_With_SoilDepth.csv"
 
 # === Load data ===
 df = pd.read_csv(landslide_file)

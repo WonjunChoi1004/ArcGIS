@@ -2,6 +2,8 @@
 # (Python 3.9-compatible; no union types)
 
 import os
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import numpy as np
 import pandas as pd
 import geopandas as gpd
@@ -10,12 +12,12 @@ import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 
 # ===== PATHS =====
-INPUT_CSV   = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts.csv"
-SOIL_SHP    = "/Users/wonjunchoi/PycharmProjects/ArcGIS/NC021/spatial/soilmu_a_nc021.shp"
-DEPTH_CSV   = "/Users/wonjunchoi/PycharmProjects/ArcGIS/Buncombe_Soil_Depth_Summary.csv"  # has "Map unit symbol", "Rating (centimeters)"
-DEM_SRC     = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/USGS_13_n36w083_20220512.tif"
-DEM_32119   = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/dem_buncombe_32119.tif"
-OUTPUT_CSV  = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
+INPUT_CSV   = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts.csv"
+SOIL_SHP    = f"{PROJECT_ROOT}/NC021/spatial/soilmu_a_nc021.shp"
+DEPTH_CSV   = f"{PROJECT_ROOT}/Buncombe_Soil_Depth_Summary.csv"  # has "Map unit symbol", "Rating (centimeters)"
+DEM_SRC     = f"{PROJECT_ROOT}/SlopeData/USGS_13_n36w083_20220512.tif"
+DEM_32119   = f"{PROJECT_ROOT}/SlopeData/dem_buncombe_32119.tif"
+OUTPUT_CSV  = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
 
 NEAREST_MAX_DIST = 300  # feet
 

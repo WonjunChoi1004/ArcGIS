@@ -1,3 +1,5 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import numpy as np
 import pandas as pd
 import geopandas as gpd
@@ -8,9 +10,9 @@ from shapely.geometry import Point
 import matplotlib.pyplot as plt
 
 # --- Paths ---
-slope_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/SlopeData/slope_asheville.tif"
-county_shp_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp"
-landslide_csv_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/North_Carolina_Landslide_Points.csv"
+slope_path = f"{PROJECT_ROOT}/SlopeData/slope_asheville.tif"
+county_shp_path = f"{PROJECT_ROOT}/MaskingData/cb_2022_us_county_500k.shp"
+landslide_csv_path = f"{PROJECT_ROOT}/LandslideData/North_Carolina_Landslide_Points.csv"
 
 # --- Load slope raster ---
 with rasterio.open(slope_path) as src:

@@ -3,10 +3,11 @@
 
 import argparse, os, re, json, csv, sys, hashlib
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 from datetime import datetime
 
 # === CONFIG DEFAULTS ===
-DEFAULT_ROOT = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS").resolve()
+DEFAULT_ROOT = Path(f"{PROJECT_ROOT}").resolve()
 DEFAULT_IGNORE = {
     ".git", ".hg", ".svn", ".DS_Store", "__pycache__", ".ipynb_checkpoints",
     "node_modules", "dist", "build", ".venv", "venv", ".mypy_cache",

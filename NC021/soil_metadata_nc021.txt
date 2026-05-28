@@ -4,7 +4,7 @@ Identification_Information:
       Originator:
         U.S. Department of Agriculture, Natural Resources
         Conservation Service
-      Publication_Date: 20240909
+      Publication_Date: 20250902
       Title:
         Soil Survey Geographic (SSURGO) database for
         Buncombe County, North Carolina
@@ -50,7 +50,7 @@ Identification_Information:
     Time_Period_Information:
       Range_of_Dates/Times:
         Beginning_Date: 20080415
-        Ending_Date: 20240909
+        Ending_Date: 20250902
     Currentness_Reference: publication date
   Status:
     Progress: Complete
@@ -882,6 +882,30 @@ Data_Quality_Information:
         data were copied to the Soil Data Mart without change.
       Source_Used_Citation_Abbreviation: NASIS
       Process_Date: 20240909
+    Process_Step:
+      Process_Description:
+        The Natural Resources Conservation Service State Soil Scientist or
+        delegate, upon completion of data quality verification, determined
+        that the tabular data should be released for official use. A
+        selected set of map units and components in the soil survey legend was
+        copied to a staging database, and rating values for selected
+        interpretations were generated. The list of selected interpretations is
+        stored in the database table named sainterp.
+      Source_Used_Citation_Abbreviation: NASIS
+      Process_Date: 20250902
+    Process_Step:
+      Process_Description:
+        The Natural Resources Conservation Service State Soil Scientist or
+        delegate verified that the labels on the digitized soil map units
+        link to map units in the tabular database, and certified the joined
+        data sets for release to the Soil Data Warehouse. A system assigned
+        version number and date stamp were added and the data were copied to
+        the data warehouse. The tabular data for the map units and components
+        were extracted from the data warehouse and reformatted into the soil
+        data delivery data model, then stored in the Soil Data Mart. The spatial
+        data were copied to the Soil Data Mart without change.
+      Source_Used_Citation_Abbreviation: NASIS
+      Process_Date: 20250902
 Spatial_Data_Organization_Information:
   Direct_Spatial_Reference_Method: Vector
 Spatial_Reference_Information:
@@ -1036,7 +1060,7 @@ Distribution_Information:
       delimited, ASCII file format.
     Turnaround: Typically within four hours
 Metadata_Reference_Information:
-  Metadata_Date: 20240924
+  Metadata_Date: 20250920
   Metadata_Contact:
     Contact_Information:
       Contact_Organization_Primary:

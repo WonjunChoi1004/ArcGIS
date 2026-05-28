@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import numpy as np
 import pandas as pd
 import geopandas as gpd
@@ -6,9 +8,9 @@ import rasterio
 from shapely.geometry import Point
 from datetime import timedelta
 
-INPUT_CSV    = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/Landslides_NonEvents_dates_Sorted.csv"
-RAINFALL_DIR = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/Rainfall"
-OUT_DIR      = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/Rainfall_Processing"
+INPUT_CSV    = f"{PROJECT_ROOT}/LandslideData/Landslides_NonEvents_dates_Sorted.csv"
+RAINFALL_DIR = f"{PROJECT_ROOT}/RainfallData/Rainfall"
+OUT_DIR      = f"{PROJECT_ROOT}/LandslideData/Rainfall_Processing"
 
 # ---- CHANGE THESE EACH RUN ----
 MODE         = "non_events"        # "events" or "non_events"

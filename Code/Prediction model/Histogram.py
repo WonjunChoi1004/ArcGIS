@@ -1,8 +1,10 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load dataset
-file_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
+file_path = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
 df = pd.read_csv(file_path)
 
 # Separate by landslides and non-landslides
@@ -21,4 +23,5 @@ plt.title("Histogram of R30d for Landslides vs Non-Landslides")
 plt.legend()
 plt.grid(axis="y", linestyle="--", alpha=0.7)
 
-plt.show()
+plt.savefig(f"{PROJECT_ROOT}/Images/R30d_histogram.png", dpi=600)
+plt.close()

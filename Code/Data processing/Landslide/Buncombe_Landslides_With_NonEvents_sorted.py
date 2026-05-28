@@ -1,12 +1,14 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
 import numpy as np
 
 # --- FILE PATHS ---
-landslide_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/North_Carolina_Landslide_Points.csv"
-county_shp = "/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp"
-output_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/Landslides_NonEvents_dates_Sorted.csv"
+landslide_csv = f"{PROJECT_ROOT}/LandslideData/North_Carolina_Landslide_Points.csv"
+county_shp = f"{PROJECT_ROOT}/MaskingData/cb_2022_us_county_500k.shp"
+output_csv = f"{PROJECT_ROOT}/LandslideData/Landslides_NonEvents_dates_Sorted.csv"
 
 # --- STEP 1: Load landslide data as GeoDataFrame ---
 df = pd.read_csv(landslide_csv)

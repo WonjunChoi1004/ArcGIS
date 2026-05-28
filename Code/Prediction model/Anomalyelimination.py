@@ -1,9 +1,10 @@
 # Remove non-landslide anomalies where R30d is ~400–500
 import pandas as pd
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 
 # ---- paths ----
-INPUT_CSV = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv")
+INPUT_CSV = Path(f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv")
 OUTPUT_CSV = INPUT_CSV.with_name(INPUT_CSV.stem + "_filtered_R30d_400_500_controls_removed.csv")
 
 # ---- params ----

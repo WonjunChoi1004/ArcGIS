@@ -3,8 +3,9 @@
 
 import pandas as pd
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 
-DATA_DIR = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData")
+DATA_DIR = Path(f"{PROJECT_ROOT}/LandslideData")
 IN_PATH  = DATA_DIR / "All_Combined.csv"
 OUT_PATH = DATA_DIR / "ML_Outputs/All_Combined_Balanced_EqualCounts.csv"
 SEED     = 42  # change if you want a different random draw

@@ -8,6 +8,7 @@ import seaborn as sns
 import statsmodels.api as sm
 
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 from collections import OrderedDict
 
 from sklearn.model_selection import train_test_split
@@ -21,8 +22,8 @@ from sklearn.metrics import (
 )
 
 # ---------- Paths ----------
-DATA_PATH = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
-ROOT_OUT = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs")
+DATA_PATH = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
+ROOT_OUT = Path(f"{PROJECT_ROOT}/LandslideData/FinalData/ML_Outputs")
 LR_DIR   = ROOT_OUT / "LogisticRegression"
 INF_DIR  = ROOT_OUT / "Inference"
 (LR_DIR / "_split_indices").mkdir(parents=True, exist_ok=True)
@@ -67,7 +68,7 @@ def plot_cm(cm, out_png, title):
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False,
                 xticklabels=["Control","Landslide"], yticklabels=["Control","Landslide"])
     plt.title(title); plt.xlabel("Predicted"); plt.ylabel("True")
-    plt.tight_layout(); plt.savefig(out_png, dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(out_png, dpi=300); plt.close()
 
 def plot_roc(y_true, y_prob, out_png, label):
     fpr, tpr, _ = roc_curve(y_true, y_prob)
@@ -75,7 +76,7 @@ def plot_roc(y_true, y_prob, out_png, label):
     plt.plot(fpr, tpr, label=label); plt.plot([0,1],[0,1],'k--')
     plt.xlabel("False Positive Rate"); plt.ylabel("True Positive Rate")
     plt.title("ROC Curve"); plt.legend()
-    plt.tight_layout(); plt.savefig(out_png, dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(out_png, dpi=300); plt.close()
 
 def run_inference_and_save(X_train_sup, y_train, fs_name, cols):
     subdir = INF_DIR / f"LR_{fs_name}"
@@ -180,7 +181,7 @@ for fs in ORDERED_FS:
 plt.plot([0,1],[0,1],'k--')
 plt.xlabel("False Positive Rate"); plt.ylabel("True Positive Rate")
 plt.title("ROC Curves - Logistic Regression (F0 vs F1 vs F2)")
-plt.legend(); plt.tight_layout(); plt.savefig(LR_DIR / "roc_curves_all.png", dpi=200); plt.close()
+plt.legend(); plt.tight_layout(); plt.savefig(LR_DIR / "roc_curves_all.png", dpi=300); plt.close()
 
 # ---------- Inference for all FS (GLM with robust SE) ----------
 for fs in ORDERED_FS:

@@ -1,11 +1,13 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import pandas as pd
 import numpy as np
 
 # === File Paths ===
-main_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_With_SoilDepth.csv"
-component_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/NC021/tabular/comp.txt"
-chorizon_path = "/Users/wonjunchoi/PycharmProjects/ArcGIS/NC021/tabular/chorizon.txt"
-output_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/All_With_Soil_FrictionAngle.csv"
+main_csv = f"{PROJECT_ROOT}/LandslideData/All_With_SoilDepth.csv"
+component_path = f"{PROJECT_ROOT}/NC021/tabular/comp.txt"
+chorizon_path = f"{PROJECT_ROOT}/NC021/tabular/chorizon.txt"
+output_csv = f"{PROJECT_ROOT}/LandslideData/All_With_Soil_FrictionAngle.csv"
 
 # === Load main landslide dataset ===
 df = pd.read_csv(main_csv)

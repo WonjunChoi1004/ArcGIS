@@ -1,3 +1,5 @@
+from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 import rasterio
 from rasterio.mask import mask
 import geopandas as gpd
@@ -8,10 +10,10 @@ from shapely.geometry import Point
 
 
 # === FILE PATHS ===
-county_shp = "/Users/wonjunchoi/PycharmProjects/ArcGIS/MaskingData/cb_2022_us_county_500k.shp"
-rainfall_bil = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil"
-landslide_csv = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/North_Carolina_Landslide_Points.csv"
-output_rainfall_tif = "/Users/wonjunchoi/PycharmProjects/ArcGIS/RainfallData/rainfall_buncombe.tif"
+county_shp = f"{PROJECT_ROOT}/MaskingData/cb_2022_us_county_500k.shp"
+rainfall_bil = f"{PROJECT_ROOT}/RainfallData/PRISM_ppt_30yr_normal_800mM4_01_bil/PRISM_ppt_30yr_normal_800mM4_01_bil.bil"
+landslide_csv = f"{PROJECT_ROOT}/LandslideData/North_Carolina_Landslide_Points.csv"
+output_rainfall_tif = f"{PROJECT_ROOT}/RainfallData/rainfall_buncombe.tif"
 
 
 

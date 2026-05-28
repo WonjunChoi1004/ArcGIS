@@ -6,8 +6,9 @@ import glob
 import numpy as np
 import pandas as pd
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 
-DATA_DIR = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/"
+DATA_DIR = f"{PROJECT_ROOT}/LandslideData/"
 
 # Expected patterns produced earlier
 LAND_GLOB = "Rainfall_Processing/Processed_Landslides_*.csv"

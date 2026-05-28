@@ -2,6 +2,7 @@ import itertools
 import json
 import time
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 
 import joblib
 import numpy as np
@@ -24,8 +25,8 @@ except ImportError:
     tqdm = lambda x, **k: x  # fallback if tqdm not installed
 
 # ---------- Paths ----------
-DATA_PATH = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
-ROOT_OUT  = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs")
+DATA_PATH = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope.csv"
+ROOT_OUT  = Path(f"{PROJECT_ROOT}/LandslideData/FinalData/ML_Outputs")
 SUBSEL_DIR = ROOT_OUT / "LR_SubsetSearch_RAIN"
 INF_DIR = ROOT_OUT / "Inference"
 SUBSEL_DIR.mkdir(parents=True, exist_ok=True)

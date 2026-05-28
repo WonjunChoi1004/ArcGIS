@@ -7,6 +7,7 @@ import seaborn as sns
 import shap
 
 from pathlib import Path
+PROJECT_ROOT = next((p for p in Path(__file__).resolve().parents if (p / ".project-root").exists()), Path(__file__).resolve().parent)
 from collections import OrderedDict
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
@@ -17,8 +18,8 @@ from sklearn.metrics import (
 )
 
 # -------- Paths --------
-DATA_PATH = "/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope_filtered_R30d_400_500_controls_removed.csv"
-ROOT_OUT  = Path("/Users/wonjunchoi/PycharmProjects/ArcGIS/LandslideData/FinalData/ML_Outputs")
+DATA_PATH = f"{PROJECT_ROOT}/LandslideData/FinalData/All_Combined_Balanced_EqualCounts_with_soil_depth_elev_slope_filtered_R30d_400_500_controls_removed.csv"
+ROOT_OUT  = Path(f"{PROJECT_ROOT}/LandslideData/FinalData/ML_Outputs")
 RF_DIR    = ROOT_OUT / "RandomForest"
 (RF_DIR / "_split_indices").mkdir(parents=True, exist_ok=True)
 
@@ -61,7 +62,7 @@ def plot_cm(cm, out_png, title):
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False,
                 xticklabels=["Control","Landslide"], yticklabels=["Control","Landslide"])
     plt.title(title); plt.xlabel("Predicted"); plt.ylabel("True")
-    plt.tight_layout(); plt.savefig(out_png, dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(out_png, dpi=300); plt.close()
 
 def plot_roc(y_true, y_prob, out_png, label):
     fpr, tpr, _ = roc_curve(y_true, y_prob)
@@ -69,7 +70,7 @@ def plot_roc(y_true, y_prob, out_png, label):
     plt.plot(fpr, tpr, label=label); plt.plot([0,1],[0,1],'k--')
     plt.xlabel("False Positive Rate"); plt.ylabel("True Positive Rate")
     plt.title("ROC Curve"); plt.legend()
-    plt.tight_layout(); plt.savefig(out_png, dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(out_png, dpi=300); plt.close()
 
 def plot_feature_importance(rf, feat_names, out_png, title):
     imp = rf.feature_importances_
@@ -79,7 +80,7 @@ def plot_feature_importance(rf, feat_names, out_png, title):
     plt.figure(figsize=(7, max(3, 0.35*len(feat_names)+1)))
     plt.barh(names_sorted[::-1], vals_sorted[::-1])
     plt.title(title); plt.xlabel("Gini importance")
-    plt.tight_layout(); plt.savefig(out_png, dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(out_png, dpi=300); plt.close()
 
 def normalize_shap_values(sv_raw, positive_class_index=1):
     if isinstance(sv_raw, list):
@@ -186,13 +187,13 @@ for fs, cols in FEATURE_SETS.items():
     plt.figure()
     shap.summary_plot(shap_values, pd.DataFrame(X_test, columns=cols), plot_type="bar", show=False)
     plt.title(f"SHAP Summary (bar) - {MODEL_NAME} ({fs})")
-    plt.tight_layout(); plt.savefig(fs_dir/f"shap_summary_bar_{MODEL_NAME}_{fs}.png", dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(fs_dir/f"shap_summary_bar_{MODEL_NAME}_{fs}.png", dpi=300); plt.close()
 
     # Beeswarm
     plt.figure()
     shap.summary_plot(shap_values, pd.DataFrame(X_test, columns=cols), show=False)
     plt.title(f"SHAP Beeswarm - {MODEL_NAME} ({fs})")
-    plt.tight_layout(); plt.savefig(fs_dir/f"shap_beeswarm_{MODEL_NAME}_{fs}.png", dpi=200); plt.close()
+    plt.tight_layout(); plt.savefig(fs_dir/f"shap_beeswarm_{MODEL_NAME}_{fs}.png", dpi=300); plt.close()
 
     # (Optional) waterfalls for top-probability samples
     top_idx = np.argsort(-y_prob)[:MAX_WATERFALLS]
@@ -200,7 +201,7 @@ for fs, cols in FEATURE_SETS.items():
         sv = shap_values[ix]
         shap.plots._waterfall.waterfall_legacy(expected_val, sv, feature_names=cols, show=False)
         plt.title(f"SHAP Waterfall - {MODEL_NAME} ({fs}) sample{k}")
-        plt.tight_layout(); plt.savefig(fs_dir/f"shap_waterfall_{MODEL_NAME}_{fs}_sample{k}.png", dpi=200); plt.close()
+        plt.tight_layout(); plt.savefig(fs_dir/f"shap_waterfall_{MODEL_NAME}_{fs}_sample{k}.png", dpi=300); plt.close()
 
     joblib.dump(rf,      fs_dir/f"model_{MODEL_NAME}_{fs}.joblib")
     joblib.dump(imputer, fs_dir/f"preprocess_imputer_{MODEL_NAME}_{fs}.joblib")
